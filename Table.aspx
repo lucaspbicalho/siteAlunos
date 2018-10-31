@@ -10,8 +10,9 @@
         div.ex1 {
             padding: 45px;
         }
+
         div.ex2 {
-            padding: 15px;
+            padding: 10px;
         }
     </style>
 </head>
@@ -20,7 +21,7 @@
         <div>
             <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
         </div>
-        <div  class="ex2">
+        <div class="ex2">
             <center>
                 <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Refresh" class="btn btn-primary" type="button"/>      
            </center>
@@ -33,42 +34,39 @@
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">NOME</label>
-                    <textarea class="form-control" id="exampleFormControlInput1" placeholder="NOME"></textarea>
+                    <textarea class="form-control" id="TextAreaNOME" cols="20" rows="2" runat="server" placeholder="NOME"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">IDADE</label>
-                    <input class="form-control form-control-sm" id="IDADEinput" type="text" placeholder="IDADE">
+                    <textarea class="form-control" id="TextAreaIDADE" cols="10" rows="1" type="text" runat="server" placeholder="IDADE"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">TELEFONE CONTATO</label>
-                    <input class="form-control form-control-sm" id="TELEFONEinput" type="text" placeholder="TELEFONE CONTATO">
+                    <textarea class="form-control" id="TextAreaTELEFONE" cols="10" rows="1" type="text" runat="server" placeholder="TELEFONE CONTATO"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">ENDEREÇO</label>
-                    <textarea class="form-control" id="ENDERECOtextarea" rows="3" placeholder="ENDEREÇO"></textarea>
+                    <textarea class="form-control" id="TextAreaENDERECO" cols="20" rows="3" runat="server" placeholder="ENDEREÇO"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">DATA NASCIMENTO</label>
-                    <input class="form-control form-control-sm" id="DATAinput" type="text" placeholder="DATA NASCIMENTO">
+                    <textarea class="form-control" id="TextAreaDATA" cols="10" rows="1" type="text" runat="server" placeholder="DATA NASCIMENTO"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">CPF</label>
-                    <input class="form-control form-control-sm" id="CPFinput" type="text" placeholder="CPF">
-                </div>
-                 <div class="form-group">
-                    <button type="button" class="btn btn-success" id="BOTAOSuccess">Salvar</button>
-                </div>
-            </form>
+                    <textarea class="form-control" id="TextAreaCPF" cols="10" rows="1" type="text" runat="server" placeholder="CPF"></textarea>
+                </div>                 
+            </form>               
         </div>
-
-
-
         </asp:Panel>
+                 <div class="ex2">           
+            <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Salvar" class="btn btn-success" type="button"/>
+        </div>
             </center>
         </div>
-
+       
         <div class="ex1">
-             <center>
+            <center>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Default.aspx">back default page</asp:HyperLink>
              </center>
         </div>
