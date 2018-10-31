@@ -1,0 +1,9 @@
+CREATE TABLE escola.users (
+	login char(200) NOT NULL,
+	senha char(12) NOT NULL,
+	nome char(250) NOT NULL,
+	tipousuario varchar(200) NOT NULL
+)
+ENGINE=MyISAM
+DEFAULT CHARSET=utf8
+COLLATE=utf8_general_ci;
