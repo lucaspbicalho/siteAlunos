@@ -11,27 +11,31 @@ public partial class Table : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		if (!Page.IsPostBack)
-		{
 		
+	}
+
+	protected void Button1_Click(object sender, EventArgs e)
+	{
+		
+
 			Conector c = new Conector();
 			c.open();
 			MySqlDataReader datareader = c.doquery("select * from alunos");
 
 			StringBuilder table = new StringBuilder();
 			table.Append("<center>");
-			table.Append("<h1>Alunos</h1>");			
+			table.Append("<h1>Alunos</h1>");
 			table.Append("<table border='1'>");
 			table.Append("<tr><th>ID</th><th>NOME</th><th>IDADE</th><th>TELEFONE CONTATO</th><th>ENDEREÇO</th><th>DATA NASCIMENTO</th><th>CPF</th>");
 			table.Append("</tr>");
 
 			if (datareader.HasRows)
 			{
-				
+
 				while (datareader.Read())
 				{
 					table.Append("<tr>");
-					table.Append("<td>" + datareader[0]+ "</td>");
+					table.Append("<td>" + datareader[0] + "</td>");
 					table.Append("<td>" + datareader[1] + "</td>");
 					table.Append("<td>" + datareader[2] + "</td>");
 					table.Append("<td>" + datareader[3] + "</td>");
@@ -46,6 +50,6 @@ public partial class Table : System.Web.UI.Page
 			table.Append("</center>");
 			PlaceHolder1.Controls.Add(new Literal { Text = table.ToString() });
 
-		}
+		
 	}
 }

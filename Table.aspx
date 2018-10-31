@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Alunos" Language="C#" AutoEventWireup="true" CodeFile="Table.aspx.cs" Inherits="Table" %>
+﻿<%@ Page Title="Alunos" Language="C#" AutoEventWireup="true" CodeFile="Table.aspx.cs" Inherits="Table" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +10,9 @@
         div.ex1 {
             padding: 45px;
         }
+        div.ex2 {
+            padding: 15px;
+        }
     </style>
 </head>
 <body>
@@ -17,7 +20,11 @@
         <div>
             <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
         </div>
-
+        <div  class="ex2">
+            <center>
+                <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Refresh" class="btn btn-primary" type="button"/>      
+           </center>
+        </div>
         <div class="ex1">
             <center>       
         <asp:Panel ID="Panel1" runat="server" BorderStyle="Groove" Direction="LeftToRight" Height="500px" Width="250px">

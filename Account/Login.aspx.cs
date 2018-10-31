@@ -37,7 +37,7 @@ public partial class Account_Login : Page
 				usuario = datareader.GetString("login");
 				senha = datareader.GetString("senha");
 				nome = datareader.GetString("nome");
-				senha = datareader.GetString("tipousuario");
+				tipo = datareader.GetString("tipousuario");
 			}
 		}
 		if (verificalogin)
