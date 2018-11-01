@@ -65,7 +65,7 @@
             </center>
         </div>
        
-        <div class="ex1">
+        <div class="ex2">
             <center>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Default.aspx">back default page</asp:HyperLink>
              </center>

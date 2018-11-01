@@ -12,7 +12,13 @@ public partial class Table : System.Web.UI.Page
 	private string m_tabela = "";
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		
+		if (!login.m_logado)
+		{
+			string currentURL = HttpContext.Current.Request.Url.AbsoluteUri;
+			currentURL = currentURL.Substring(0, currentURL.LastIndexOf("/"));
+			currentURL = currentURL + @"/naoLogado.html";
+			Response.Redirect(currentURL);
+		}
 	}
 
 	protected void Button1_Click(object sender, EventArgs e)
@@ -59,24 +65,39 @@ public partial class Table : System.Web.UI.Page
 
 		//INSERT INTO table_name(column1, column2, column3, ...)
 		//VALUES(value1, value2, value3, ...);
-
-		string nome = this.TextAreaNOME.Value;
-		int idade = Convert.ToInt32(this.TextAreaIDADE.Value);
-		Int64 telefone = Convert.ToInt64(this.TextAreaTELEFONE.Value);
-		string endereco = this.TextAreaENDERECO.Value;
-		string dataNascimento = this.TextAreaDATA.Value;
-		Int64 cpf = Convert.ToInt64(this.TextAreaCPF.Value);
-
+		int currentID=0;
+		aluno aluno = new aluno();
+		aluno.atribuirDados(this.TextAreaNOME.Value, this.TextAreaIDADE.Value, this.TextAreaTELEFONE.Value,
+			this.TextAreaENDERECO.Value, this.TextAreaDATA.Value, this.TextAreaCPF.Value);
+		
 		Conector c = new Conector();
 		c.open();
-		MySqlDataReader datareader = c.doquery("insert into alunos (id,nome,idade,telefonecontato,endereco,datanasc,cpf)" +  
-			" Values (a,s,x,c,v)");
+		MySqlDataReader datareader = c.doquery("select max(id) from alunos");
 		if (datareader.HasRows)
 		{
-
+			while (datareader.Read())
+			{
+				 currentID = Convert.ToInt32(datareader[0]);
+				currentID = currentID + 1;
+			}
 		}
 		else
 		{
-
+			throw new Exception("erro ao pegar Maximo ID de alunos");
 		}
+		datareader.Close();
+		datareader = c.doquery("insert into alunos (id,nome,idade,telefonecontato,endereco,datanasc,cpf)" +
+			   " Values (" + currentID.ToString() + "," + aluno.ToString() + ")");
+
+		if (datareader.RecordsAffected > 0)
+		{
+			Response.Write("<script>alert('Dados incluidos com Sucesso');</script>");
+		}
+		else
+		{
+			Response.Write("<script>alert('Os Dados não foram incluidos');</script>");
+		}
+
+
+	}
 }

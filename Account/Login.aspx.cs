@@ -50,7 +50,9 @@ public partial class Account_Login : Page
 			currentURL = currentURL.Substring(0, currentURL.LastIndexOf("/"));
 			currentURL = currentURL.Substring(0, currentURL.LastIndexOf("/"));
 			currentURL = currentURL + @"/Table.aspx";
+			login.m_logado = verificalogin;
 			Response.Redirect(currentURL);
+		
 		}
 		else
 		{
